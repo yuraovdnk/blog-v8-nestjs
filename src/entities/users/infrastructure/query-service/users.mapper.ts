@@ -14,6 +14,8 @@ export class UsersMapper {
     return {
       id: user._id,
       login: user.accountData.login,
+      email: user.accountData.email,
+      createdAt: user.accountData.createdAt,
     };
   }
 }

@@ -84,11 +84,11 @@ export class AuthService {
     const payload = { userId };
     const accessToken = this.jwtService.sign(payload, {
       secret: this.configService.get('secrets.secretAccessToken'),
-      expiresIn: '1d',
+      expiresIn: '10s',
     });
     const refreshToken = this.jwtService.sign(payload, {
       secret: this.configService.get('secrets.secretRefreshToken'),
-      expiresIn: '2d',
+      expiresIn: '20s',
     });
     await this.tokenService.saveToken(userId, refreshToken);
     return {
